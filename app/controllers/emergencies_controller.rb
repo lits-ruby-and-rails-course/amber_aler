@@ -34,6 +34,7 @@ class EmergenciesController < ApplicationController
   end
 
   def show
+    @message = Message.new(emergency: @emergency)
   end
 
   def destroy
@@ -58,5 +59,4 @@ class EmergenciesController < ApplicationController
     def find_emergency
       @emergency = Emergency.find(params[:id])
     end
-
 end
