@@ -5,6 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  has_many :emergencies
+  has_many :emergencies 
 
 end
