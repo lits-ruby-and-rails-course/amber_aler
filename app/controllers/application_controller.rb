@@ -11,4 +11,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
 
+  def require_authentication!
+   if user_signed_in?
+      super
+   else 
+      redirect_to user_session_path, notice => 'please sign in'
+   end
+  end
+
 end

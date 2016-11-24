@@ -1,13 +1,17 @@
 class EmergenciesController < ApplicationController
-	
-	before_filter :find_emergency, only: [:edit, :update, :show, :destroy]
+
+	before_action :find_emergency, only: [:edit, :update, :show, :destroy]
+	before_action :authenticate_user!, only: [:new, :create, :update, :show, :destroy]
+	before_action :only_author!, only: [:edit, :update, :destroy]
 
 	def new
 		@emergency = Emergency.new
 	end
 
 	def create
+
 		@emergency = Emergency.new(page_params)
+		@emergency.user = current_user
 		if @emergency.save
 			redirect_to emergencies_path
 		else
@@ -42,6 +46,12 @@ class EmergenciesController < ApplicationController
 	end
 
 	private
+		def only_author!
+			unless @emergency.user == current_user
+				redirect_to emergencies_path, errors: 'Only author can update this emergency!'
+			end
+		end
+
 		def page_params
 			params[:emergency].permit(:title, :description)
 		end
@@ -49,7 +59,6 @@ class EmergenciesController < ApplicationController
 		def find_emergency
 			@emergency = Emergency.find(params[:id])
 		end
-
 
 
 end
