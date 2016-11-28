@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.3.1'
-gem 'rails', '4.2.7.1'
+
+
+gem 'rails', '~>5.0.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -19,6 +21,7 @@ gem 'devise-i18n'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'slim-rails'
+# gem 'quiet_assets', group: :development
 group :development do
   gem 'better_errors'
   gem 'foreman'
