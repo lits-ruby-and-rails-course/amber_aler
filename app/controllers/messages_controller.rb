@@ -3,11 +3,11 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
+    @message.emergency_id = params[:emergency_id]
     @message.user = current_user
-    @message.emergency = emergency
 
     if @message.save
-      redirect_to emergency_path(emergency)
+      redirect_to emergency_path(@message.emergency_id)
     else
       render "emergencies/show"
     end
@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
 
   def update
     if @message.update(message_params)
-      redirect_to emergency_path(@message.emergency)
+      redirect_to emergency_path(@message.emergency_id)
     else
       render :edit
     end
@@ -26,9 +26,9 @@ class MessagesController < ApplicationController
 
   def destroy
     if @message.destroy
-      redirect_to emergency_path(@message.emergency)
+      redirect_to emergency_path(@message.emergency_id)
     else
-      redirect_to emergency_path(@message.emergency), flash: {error: 'Something went wrong'}
+      redirect_to emergency_path(@message.emergency_id), flash: {error: 'Something went wrong'}
     end
   end
 
@@ -39,9 +39,5 @@ class MessagesController < ApplicationController
 
   def find_message
     @message = Message.find(params[:id])
-  end
-
-  def emergency
-    @emergency ||= Emergency.find(params[:id])
   end
 end
