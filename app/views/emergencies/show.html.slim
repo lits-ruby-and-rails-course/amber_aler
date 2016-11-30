@@ -1,6 +1,19 @@
-
-h1
-  = @emergency.title
-
-h2
-  = @emergency.description
+.container
+	.row
+		.col-lg-10
+			h1
+				= @emergency.title
+			p.lead
+				| by 
+				=> @emergency.user.name
+			p
+				span.glyphicon.glyphicon-time
+				|  Posted on 
+				=> @emergency.updated_at
+			hr
+			= @emergency.description
+			hr
+			h4
+				| Comments
+			= render 'messages/list', emergency: @emergency
+			

@@ -1,0 +1,23 @@
+- emergency.messages.each do |message|
+	.media
+		a.pull-left href="#" 
+			img.media-object alt="" src="https://www.gravatar.com/avatar/d?s=64"
+		.media-body
+			h4.media-heading
+				=> message.user.name
+				small
+					=> message.updated_at
+			p
+				= message.text
+hr
+h4
+  | Leave a Message:
+= render 'messages/form', emergency: emergency
+
+
+
+/ Крута хрень від Т
+/ 	pre = message.user.inspect
+/ 	pre = message.emergency.inspect
+/ = Message.where(emergency: emergency).to_ary.map(&:inspect).join"==="
+/ 	 
