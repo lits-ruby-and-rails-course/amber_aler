@@ -10,6 +10,11 @@
 				span.glyphicon.glyphicon-time
 				|  Posted on 
 				=> @emergency.updated_at
+			.small
+				- if @emergency.user == current_user
+					| This your emergancy, you can: 
+					=> link_to "Edit", edit_emergency_path(@emergency)
+					= link_to "Destroy", emergency_path(@emergency), method: :delete, data:{confirm: 'Are you sure?'}
 			hr
 			= @emergency.description
 			hr
