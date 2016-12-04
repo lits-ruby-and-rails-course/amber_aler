@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+// wysiwyg
+//= require froala_editor.min.js
+//= require plugins/char_counter.min.js
+//= require plugins/lists.min.js
+//= require plugins/paragraph_format.min.js
+//= require plugins/quote.min.js
+//= require plugins/table.min.js

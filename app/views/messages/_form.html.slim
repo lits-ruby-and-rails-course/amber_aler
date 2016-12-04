@@ -4,3 +4,15 @@ div.well
     - if @message.emergency && @message.emergency.user == current_user
       = f.input :claim_closed, as: :boolean, class: 'btn btn-primary'
     = f.button :submit
+
+javascript:
+  $('#message_text').froalaEditor({
+    paragraphFormat: {
+      N: 'Normal',
+      H4: 'Heading 1',
+      H5: 'Heading 2',
+      H6: 'Heading 3',
+      PRE: 'Code'
+    },
+    pastePlain: true
+  })

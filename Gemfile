@@ -21,6 +21,8 @@ gem 'devise-i18n'
 gem 'high_voltage'
 gem 'simple_form'
 gem 'slim-rails'
+gem "wysiwyg-rails"
+gem "font-awesome-rails"
 # gem 'quiet_assets', group: :development
 group :development do
   gem 'better_errors'
