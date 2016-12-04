@@ -19,7 +19,8 @@ class EmergenciesController < ApplicationController
   end
 
   def index
-    @emergencies = Emergency.all
+    # @emergencies = Emergency.all
+    @emergencies = Emergency.paginate(:page => params[:page], :per_page => 5) # only 5 emergenies on page by gem will_paginate
   end
 
   def edit
