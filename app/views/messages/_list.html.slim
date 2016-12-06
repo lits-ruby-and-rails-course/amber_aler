@@ -17,5 +17,8 @@
 
 hr
 h4
-  | Leave a Message:
-= render 'messages/form', emergency: emergency
+  - if emergency.allow_messages_for? current_user
+    | Leave a Message:
+    = render 'messages/form', emergency: emergency
+  - else
+    | Messages not allowed

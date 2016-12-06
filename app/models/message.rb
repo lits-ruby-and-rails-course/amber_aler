@@ -20,6 +20,10 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :emergency
 
+  before_save do |record|
+    emergency.update(status: Emergency::CLOSED) if claim_closed?
+  end
+
   before_save    :touch_emergency!
   before_destroy :touch_emergency!
 
