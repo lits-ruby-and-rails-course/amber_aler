@@ -19,4 +19,12 @@
 class Message < ApplicationRecord
   belongs_to :user
   belongs_to :emergency
+
+  before_save    :touch_emergency!
+  before_destroy :touch_emergency!
+
+  protected
+  def touch_emergency!
+    emergency.touch
+  end
 end
