@@ -13,7 +13,7 @@
 
 class Emergency < ApplicationRecord
   belongs_to :user
-  has_many :messages
+  has_many :messages, dependent: :destroy
 
   STATUSES = [ACTIVE = :active, CLOSED = :closed, ARCHIVED = :archived]
 
