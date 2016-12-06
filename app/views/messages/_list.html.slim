@@ -1,0 +1,21 @@
+- emergency.messages.each do |message|
+  div.media id="message-#{message.id}"
+    /user avatar
+    = link_to message.user, class: 'pull-left'
+      = image_tag avatar_url(message.user, 64), class: 'media-object', alt: message.user.name
+    div.media-body
+      h4.media-heading
+        /title can go here
+        small
+          => message.user.display_name
+          => message.created_at
+          - if message.user == current_user
+            => link_to 'Edit', edit_message_path(message)
+            = link_to 'Delete', message_path(message), method: :delete, data: {confirm: 'Are you sure?'}
+
+      = sanitize message.text, tags: %w(p strong em u table thead tbody th tr td h4 h5 h6 pre br hr ul ol li blockquote sup), attributes: %w(id class style)
+- if user_signed_in?
+  hr
+  h4
+    | Leave a Message:
+  = render 'messages/form', emergency: emergency
