@@ -12,7 +12,8 @@ table.table
           = link_to emergency.title, emergency
         td
           - if emergency.user == current_user
-          = link_to "Edit", edit_emergency_path(emergency)
+            = link_to "Edit", edit_emergency_path(emergency)
         td
-          = link_to "Destroy", emergency_path(emergency), method: :delete, data:{confirm: 'Are you sure?'}
+          - if emergency.user == current_user
+            = link_to "Destroy", emergency_path(emergency), method: :delete, data:{confirm: 'Are you sure?'}
 = link_to "Create new emergency", new_emergency_path

@@ -7,16 +7,34 @@
         <div class="col-md-8">
 
             <h1 class="page-header">
-                Page Heading
-                <small>Secondary Text</small>
+                New emergencies
+                <!-- <small></small> -->
             </h1>
 
-            <!-- First Blog Post -->
+            <% @emergencies.each do |em| %>
             <h2>
-                <%= link_to 'Blog Post Title', page_path('blogpost') %>
+                <%= link_to em.title, em %>
             </h2>
             <p class="lead">
-                by <%= link_to 'Start Bootstrap', root_path %>
+                by <%= link_to em.user.name, em.user %>
+            </p>
+            <p><span class="glyphicon glyphicon-time"></span> Posted on <%= em.created_at %></p>
+            <!-- <hr> -->
+            <!-- <img class="img-responsive" src="http://placehold.it/900x300" alt=""> -->
+            <!-- <hr> -->
+            <p>
+                <%= sanitize em.description, tags: %w(p strong em u table thead tbody th tr td h4 h5 h6 pre br hr ul ol li blockquote), attributes: %w(id class style) %>
+            </p>
+            <%= link_to ('Read More <span class="glyphicon glyphicon-chevron-right"></span>').html_safe, em, :class => "btn btn-primary" %>
+
+            <hr>
+            <% end %>
+            <!-- First Blog Post -->
+<!--             <h2>
+                <%#= link_to 'Blog Post Title', page_path('blogpost') %>
+            </h2>
+            <p class="lead">
+                by <%#= link_to 'Start Bootstrap', root_path %>
             </p>
             <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:00 PM</p>
             <hr>
@@ -26,9 +44,9 @@
             <%= link_to ('Read More <span class="glyphicon glyphicon-chevron-right"></span>').html_safe, page_path('blogpost'), :class => "btn btn-primary" %>
 
             <hr>
-
+ -->
             <!-- Second Blog Post -->
-            <h2>
+<!--             <h2>
                 <%= link_to 'Blog Post Title', page_path('blogpost') %>
             </h2>
             <p class="lead">
@@ -42,9 +60,9 @@
             <%= link_to ('Read More <span class="glyphicon glyphicon-chevron-right"></span>').html_safe, page_path('blogpost'), :class => "btn btn-primary" %>
 
             <hr>
-
+ -->
             <!-- Third Blog Post -->
-            <h2>
+<!--             <h2>
                 <%= link_to 'Blog Post Title', page_path('blogpost') %>
             </h2>
             <p class="lead">
@@ -58,7 +76,7 @@
             <%= link_to ('Read More <span class="glyphicon glyphicon-chevron-right"></span>').html_safe, page_path('blogpost'), :class => "btn btn-primary" %>
 
             <hr>
-
+ -->
             <!-- Pager -->
             <ul class="pager">
                 <li class="previous">

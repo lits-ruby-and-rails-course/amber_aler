@@ -12,9 +12,9 @@
 
 class Emergency < ActiveRecord::Base
 
-belongs_to :user  #for one to many
+belongs_to :user  
 
-validates :title, :description, presence: true
+has_many :messages
 
 end
 

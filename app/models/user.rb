@@ -31,5 +31,9 @@ class User < ActiveRecord::Base
 
 
   has_many :emergencies 
+  
+  def display_name
+    name.presence || "User ##{id}"
+  end       
 
 end
