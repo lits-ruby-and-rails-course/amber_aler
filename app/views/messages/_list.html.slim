@@ -1,4 +1,4 @@
-- emergency.messages.each do |message|
+- @messages.each do |message|
   div.media id="message-#{message.id}"
     /user avatar
     a.pull-left href='#'
@@ -14,11 +14,4 @@
             = link_to 'Delete', message_path(message), method: :delete, data: {confirm: 'Are you sure?'}
 
       = sanitize_wysiwyg message.text
-
-hr
-h4
-  - if emergency.allow_messages_for? current_user
-    | Leave a Message:
-    = render 'messages/form', emergency: emergency
-  - else
-    | Messages not allowed
+= paginate @messages

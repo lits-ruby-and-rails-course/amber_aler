@@ -32,6 +32,8 @@ class User < ApplicationRecord
   has_many :emergencies, dependent: :destroy
   has_many :messages,    dependent: :destroy
 
+  validates :name, presence: true
+
   def display_name
     name.presence || "User ##{id}"
   end
