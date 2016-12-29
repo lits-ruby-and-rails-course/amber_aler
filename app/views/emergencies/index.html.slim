@@ -22,7 +22,7 @@ section
         = link_to 'Read More', emergency, class: "btn btn-primary"
         hr
 
-      = paginate @emergencies
+    = paginate @emergencies
     .col-md-4
       .row
         .col-md-12
@@ -32,7 +32,11 @@ section
               = submit_tag 'Search', name: nil, class: 'btn btn-default'
       .row
         .col-md-12
-          div.well
+          .well
             h4
               | Navigation
-            = link_to "Create new emergency", new_emergency_path
+            = link_to_if current_user.active, "Create new emergency", new_emergency_path
+    .well
+      h4
+        | Navigation
+      
