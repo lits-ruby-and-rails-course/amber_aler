@@ -9,6 +9,9 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  status      :string           default("active")
+#  address     :string
+#  lat         :decimal(15, 13)
+#  lng         :decimal(15, 13)
 #
 
 class Emergency < ApplicationRecord

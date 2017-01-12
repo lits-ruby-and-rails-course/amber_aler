@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.geocomplete.min.js
+//= require gmap-init.js
 //= require bootstrap-sprockets
 //= require froala_editor.min.js
 //= require plugins/char_counter.min.js
