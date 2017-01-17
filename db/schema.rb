@@ -10,15 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220172453) do
+ActiveRecord::Schema.define(version: 20170110181722) do
 
   create_table "emergencies", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "user_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "status",      default: "active"
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.string   "status",                                default: "active"
+    t.string   "address"
+    t.decimal  "lat",         precision: 15, scale: 13
+    t.decimal  "lng",         precision: 15, scale: 13
   end
 
   create_table "messages", force: :cascade do |t|

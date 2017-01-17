@@ -5,6 +5,7 @@ html
     title
       = content_for?(:title) ? yield(:title) : 'Amber Aler'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Amber Aler'}"
+    script async="" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKzr8OxHjcNLQSovlMtnWl5XPRR3Iquvc&libraries=places" type="text/javascript"
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => 'reload'
     == javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
     == csrf_meta_tags

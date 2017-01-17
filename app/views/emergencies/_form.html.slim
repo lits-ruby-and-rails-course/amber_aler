@@ -2,9 +2,12 @@
   = f.error_notification
 
   = f.input :title
+  = f.input :address
   = f.input :description, :input_html => {:style=> 'height: 200px'}
 
   = f.button :submit
+
+#gmaps-error
 
 javascript:
   $('#emergency_description').froalaEditor({
